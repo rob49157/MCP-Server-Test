@@ -37,7 +37,7 @@ class SafetyAppMCPServer {
                         inputSchema: {
                             type: "object",
                             properties: {
-                                fullname: {
+                                fullName: {
                                     type: "string",
                                     description: "Name of the person creating the report",
                                 },
@@ -120,10 +120,10 @@ class SafetyAppMCPServer {
     async createReport(args) {
         try {
             const reportData = {
-                title: args.title,
-                description: args.description,
-                severity: args.severity || "medium",
-                createdAt: new Date(),
+                fullName: args.fullName,
+                email: args.email,
+                phone: args.phone,
+                message: args.message
             };
             const response = await axios.post(`${this.baseUrl}/reports/submit-form`, reportData);
             return {

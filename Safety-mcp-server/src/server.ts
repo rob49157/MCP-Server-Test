@@ -11,10 +11,11 @@ import {
 import axios from 'axios';
 
 interface ReportData {
-  title?: string;
-  description?: string;
-  severity?: string;
-  createdAt?: Date;
+   fullName?: String,
+    email?: String,
+    phone?: String,
+    message?: String,
+    photo?: String,
 }
 
 class SafetyAppMCPServer {
@@ -53,7 +54,7 @@ class SafetyAppMCPServer {
                         inputSchema: {
                             type: "object",
                             properties: {
-                                fullname: {
+                                fullName: {
                                     type: "string",
                                     description: "Name of the person creating the report",
                                 },
@@ -142,10 +143,10 @@ class SafetyAppMCPServer {
   private async createReport(args: ReportData): Promise<CallToolResult> {
     try {
       const reportData = {
-        title: args.title,
-        description: args.description,
-        severity: args.severity || "medium",
-        createdAt: new Date(),
+        fullName: args.fullName,
+        email: args.email,
+        phone: args.phone,
+        message: args.message
       };
 
       const response = await axios.post(`${this.baseUrl}/reports/submit-form`, reportData);
