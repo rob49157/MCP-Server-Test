@@ -1,0 +1,31 @@
+{
+  "name": "safety-app-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP Server for Safety App Testing",
+  "main": "build/server.js",
+  "bin": {
+    "safety-app-mcp-server": "./build/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node build/server.js",
+    "dev": "tsx watch src/server.ts",
+    "clean": "rm -rf build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module",
+  "keywords": ["mcp", "server", "safety", "testing"],
+  "author": "Your Name",
+  "license": "MIT"
+}
